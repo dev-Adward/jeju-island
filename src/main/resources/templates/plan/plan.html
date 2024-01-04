@@ -32,13 +32,52 @@
     float: left;
     width: 30%;
     height: 100%;
-    background: #1e00ff;
+    background: #ededed;
 }
-.swipe-plan{
-    justify-content: center;
-    height: 95%;
-    width: 95%;
+.swipe-plan {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Adjusts the children to be spaced out */
+    height: 98%;
+    width: 96%;
+    list-style: none;
+    padding: 0; 
 }
+
+.top {
+    height: 90px; 
+    background: #000000;
+  
+}
+
+.middle {
+    flex-grow: 1; 
+    background: rgb(255, 255, 255);
+}
+.cell {
+    border-bottom : 3px solid #efefef;
+    height: 50px;
+    font-size: 18px;
+    color : #c0c0c0;
+    position: relative;
+    text-align: left;
+    padding-left: 10px;
+    cursor: pointer;
+}
+.cell > div {
+    position: absolute;
+    top: 3px;
+    left: 40px;
+    color: gray;
+    font-size: 9px;
+}
+
+.bottom {
+    height: 75px;
+    background: #ad2f2f;
+    }
+
+
 </style>
 
 <body id="body" style="background : #f5f5f5 ">
@@ -58,8 +97,47 @@
     
             <!-- plan start -->
             <div id="plan">
-                <li class="swipe-plan" style="background: #99f1f7; border: 3px solid #000000;">
-
+                <li class="swipe-plan" style="background: #ffffff; border:3px solid #000000;">
+                    <div class="top" style="font-size: 30px; color:white"> 상단 부분 </div>
+                    <div class="middle">
+                        <div class="cell">
+                            0~9
+                            <div></div>
+                        </div>
+                        <div class="cell">
+                            10
+                            <div></div>
+                        </div>
+                        <div class="cell">
+                            11
+                            <div></div>
+                        </div>
+                        <div class="cell">
+                            12
+                            <div></div>
+                        </div>
+                        <div class="cell">
+                            13
+                            <div></div>
+                        </div>
+                        <div class="cell">
+                            14
+                            <div></div>
+                        </div>
+                        <div class="cell">
+                            15
+                            <div></div>
+                        </div>
+                        <div class="cell">
+                            16
+                            <div></div>
+                        </div>
+                        <div class="cell">
+                            17
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="bottom" style="font-size: 30px; color:white">하단 부분 일단 나눔</div>
                 </li>
             </div>
             <!-- plan end -->
