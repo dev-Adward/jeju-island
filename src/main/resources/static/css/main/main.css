@@ -1,4 +1,23 @@
 /* main.html */
+body, a, li{
+    font-family: 'Noto Sans KR','dotum','돋움','verdana','snas-serif';
+    outline: none;
+    font-size: 14px;
+    color: #222;
+    letter-spacing: -1px;
+    line-height: 1.4;
+}
+
+
+
+img{
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+
+
 
 .main{
     margin:0 auto;
@@ -13,4 +32,112 @@
 
 .plan-city{
     margin: 28px 0 14px;
+}
+
+.plan-city-text, .popular-location-text, .recommend-location-text{
+    position: relative;
+    margin: 0 0 2px;
+    font-weight: bolder;
+    color: #222;
+    font-size: 22px;
+}
+
+.plan-city-wrapper{
+    display: flex;
+}
+
+.plan-one-city:first{
+    margin-left: 0;
+}
+
+.plan-one-city{
+    margin-left: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
+
+.plan-city-pic{
+    width: 100px;
+    height: 100px;
+}
+
+.plan-city-name, .plan-country-name{
+    text-align: center;
+}
+
+.plan-city-name{
+    font-size: 14px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.plan-country-name{
+    color : #8f8f8f;
+    font-weight: normal;
+}
+
+.popular-one-city{
+    width: 220px;
+    height: 170px;
+    position: relative;
+}
+
+.popular-one-city img{
+    width: 100%;
+    height: 100%;
+}
+
+.popular-one-city-text{
+    position: absolute;
+    top: 45%;
+    left: 35%;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-shadow: 1px 1px 2px rgba(0,0,0,.4);
+}
+
+.recommend-city{
+
+}
+
+.one-recommend-city{
+    background: #696969;
+    color: #fff;
+}
+
+.one-recommend-city-pic{
+    width: 300px;
+    height: 160px;
+    position: relative;
+}
+
+.one-recommend-city-text-wrapper{
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    color: #fff;
+    text-align: center;
+}
+
+.one-recommend-city-pic-country{
+    display: inline-block;
+    margin: 3px 0 0;
+    font-size: 13px;
+    color: rgba(255,255,255,.8);
+    text-shadow: 1px 1px 2px rgba(0,0,0,.4);
+}
+
+.one-recommend-city-pic-city{
+    max-width: 100%;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-shadow: 1px 1px 2px rgba(0,0,0,.4);
 }
