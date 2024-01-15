@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../../static/css/plan/plan_map.css">
-    <link rel="stylesheet" href="../../static/css/plan//common.css">
+    <link rel="stylesheet" href="../../static/css/plan/common.css">
+    <link rel="stylesheet" href="../../static/css/plan/kakao.css">
 </head>
 <style>
-#wrap{
-    z-index: 999;
+#map_wrap{
+    
     position: fixed;
     left: 0px;
     top: 0px;
@@ -87,13 +88,22 @@
         <!-- 뭔가 들어가려나 -->
 
         <!-- map_wrap -->
-        <div id="wrap">
-
+        <div id="map_wrap">
             <!-- map start -->
-            <div id="map">
-                <!-- <div id="inmap" style="width: 500; height: 500;">
-                
-                </div> -->
+            <div id="map" style="position:relative;overflow:hidden;">
+                <div id="menu_wrap" class="bg_white" style="z-index: 999;">
+                    <div class="option">
+                        <div>
+                            <form onsubmit="searchPlaces(); return false;">
+                                키워드 : <input type="text" value="종각역" id="keyword" size="15"> 
+                                <button type="submit">검색하기</button> 
+                            </form>
+                        </div>
+                    </div>
+                    <hr>
+                    <ul id="placesList"></ul>
+                    <div id="pagination"></div>
+                </div>
             </div>
             <!-- map end -->
     
@@ -153,6 +163,7 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&401b713d599592f06b80aaefd7fbb3c1=services,clusterer,drawing"></script>
 <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=401b713d599592f06b80aaefd7fbb3c1&libraries=LIBRARY"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=401b713d599592f06b80aaefd7fbb3c1&libraries=services"></script> -->
+<script src="../../static/js/plan/kakaosearch.js"></script>
 <script src="../../static/js/plan/kakaoMap.js"></script>
 
    
