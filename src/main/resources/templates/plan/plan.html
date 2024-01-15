@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../static/css/plan/plan_map.css">
     <link rel="stylesheet" href="../../static/css/plan/common.css">
+    <link rel="stylesheet" href="../../static/css/plan/plan_map.css">
     <link rel="stylesheet" href="../../static/css/plan/kakao.css">
 </head>
 <style>
@@ -76,7 +76,7 @@
 .bottom {
     height: 75px;
     background: #ad2f2f;
-    }
+}
 
 
 </style>
@@ -91,20 +91,28 @@
         <div id="map_wrap">
             <!-- map start -->
             <div id="map" style="position:relative;overflow:hidden;">
-                <div id="menu_wrap" class="bg_white" style="z-index: 999;">
-                    <div class="option">
-                        <div>
-                            <form onsubmit="searchPlaces(); return false;">
-                                키워드 : <input type="text" value="종각역" id="keyword" size="15"> 
-                                <button type="submit">검색하기</button> 
-                            </form>
-                        </div>
+                <div id="shadow" class="Shadow on">
+                    <div class="bar">
+                        <span id="shadow.toggle" class="toggle"></span>
                     </div>
-                    <hr>
-                    <ul id="placesList"></ul>
-                    <div id="pagination"></div>
+                </div>
+                <div id="menu" class="on off">
+                    <div id="menu_wrap" class="bg_white" style="z-index: 2;">
+                        <div class="option">
+                            <div>
+                                <form onsubmit="searchPlaces(); return false;">
+                                    키워드 : <input type="text" value="종각역" id="keyword" size="15"> 
+                                    <button type="submit">검색하기</button> 
+                                </form>
+                            </div>
+                        </div>
+                        <hr>
+                        <ul id="placesList"></ul>
+                        <div id="pagination"></div>
+                    </div>
                 </div>
             </div>
+            
             <!-- map end -->
     
             <!-- plan start -->
@@ -165,5 +173,14 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=401b713d599592f06b80aaefd7fbb3c1&libraries=services"></script> -->
 <script src="../../static/js/plan/kakaosearch.js"></script>
 <script src="../../static/js/plan/kakaoMap.js"></script>
+<script>
 
+
+document.getElementById('shadow.toggle').addEventListener('click', (e) => {
+    var arrow = document.getElementById('shadow.toggle');
+    console.log(arrow);
+    // 화살표 클릭 시 
+    // 
+});
+</script>
    
