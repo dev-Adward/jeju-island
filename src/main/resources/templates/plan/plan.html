@@ -172,15 +172,15 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=401b713d599592f06b80aaefd7fbb3c1&libraries=LIBRARY"></script> -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=401b713d599592f06b80aaefd7fbb3c1&libraries=services"></script>
 <script src="../../static/js/plan/kakaoMap.js"></script>
-<!-- <script src="../../static/js/plan/test.js"></script> -->
+<script src="../../static/js/plan/addmarker.js"></script>
 <script>
 
     
     $(document).ready(function(){
-        // 지도 변환 박스 div 인덱스
-        console.log($("div:eq(26)"))
-        $("div:eq(26)").css("left", "20px")
-        $("div:eq(26)").css("top", "20px")
+        // 지도 변환 박스 div 인덱스 --- 찾아서 바꿔야함
+        console.log($("div"))
+        $("div:eq(27)").css("left", "20px")
+        $("div:eq(27)").css("top", "20px")
     })
     
     var $arrow = $('#shadow .toggle');

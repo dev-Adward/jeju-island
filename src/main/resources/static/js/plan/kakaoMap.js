@@ -49,6 +49,19 @@ function placesSearchCB(data, status, pagination) {
 
         // 페이지 번호를 표출합니다
         displayPagination(pagination);
+        
+        
+        /* 추가 시킨 부분 start  */
+        // var bounds = new kakao.maps.LatLngBounds();
+
+        // for (var i=0; i<data.length; i++) {
+        //     displayMarker(data[i]);    
+        //     bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+        // }       
+
+        // // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+        // map.setBounds(bounds);
+        /* 추가 시킨 부분 end */
 
     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
@@ -62,6 +75,28 @@ function placesSearchCB(data, status, pagination) {
 
     }
 }
+
+// 지도에 마커를 표시하는 함수입니다
+// function displayMarker(place) {
+    
+//     // 마커를 생성하고 지도에 표시합니다
+//     var marker = new kakao.maps.Marker({
+//         map: map,
+//         position: new kakao.maps.LatLng(place.y, place.x) 
+//     });
+
+//     // 마커에 클릭이벤트를 등록합니다
+//     kakao.maps.event.addListener(marker, 'click', function() {
+//         // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+//         var content = `
+//         <div style="padding:5px;z-index:1;">${place.place_name}</div>
+//         <div style="padding:5px;z-index:1;">${place.address_name}</div>
+//         <div style="padding:5px;z-index:1;">${place.road_address_name}</div>
+//     `;
+//         infowindow.setContent(content);
+//         infowindow.open(map, marker);
+//     });
+// }
 
 // 검색 결과 목록과 마커를 표출하는 함수입니다
 function displayPlaces(places) {
@@ -108,7 +143,11 @@ function displayPlaces(places) {
             itemEl.onmouseout =  function () {
                 infowindow.close();
             };
-        })(marker, places[i].place_name);
+
+//******************* 위치에 대한 정보
+            // console.log(places[i])
+
+        })(marker, places[i]);
 
         fragment.appendChild(itemEl);
     }
@@ -163,7 +202,6 @@ function addMarker(position, idx, title) {
 
     marker.setMap(map); // 지도 위에 마커를 표출합니다
     markers.push(marker);  // 배열에 생성된 마커를 추가합니다
-
     return marker;
 }
 
@@ -208,11 +246,28 @@ function displayPagination(pagination) {
 
 // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
 // 인포윈도우에 장소명을 표시합니다
-function displayInfowindow(marker, title) {
-    var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
-
+function displayInfowindow(marker, place) {
+    var content = `
+        <div class="InfoWindow PlaceInfoWindow">
+            <div class="tooltip-body">
+                <div class="tooltip-head">
+                    <strong class="placename">
+                    <a href="${place.place_url}">${place.place_name}</a>
+                    </strong>
+                </div>
+                <div class="tooltip-content">
+                    <div class="tooltip-content-place">
+                        <p class="tooltip-address">주소:${place.address_name}</p>
+                        <p class="tooltip-road">도로명:${place.road_address_name}</p>
+                        <p class="phone">전화번호:${place.phone}</p>
+                    </div>
+                </div>
+            <div>
+        <div>
+    `;
     infowindow.setContent(content);
     infowindow.open(map, marker);
+    
 }
 
  // 검색결과 목록의 자식 Element를 제거하는 함수입니다
