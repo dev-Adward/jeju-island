@@ -145,7 +145,7 @@ function displayPlaces(places) {
             };
 
 //******************* 위치에 대한 정보
-            console.log(places[i])
+            // console.log(places[i])
 
         })(marker, places[i]);
 
@@ -202,7 +202,6 @@ function addMarker(position, idx, title) {
 
     marker.setMap(map); // 지도 위에 마커를 표출합니다
     markers.push(marker);  // 배열에 생성된 마커를 추가합니다
-
     return marker;
 }
 
@@ -249,14 +248,26 @@ function displayPagination(pagination) {
 // 인포윈도우에 장소명을 표시합니다
 function displayInfowindow(marker, place) {
     var content = `
-        <div class="testtest" style="padding:5px;z-index:1;">${place.place_name}</div>
-        <div style="padding:5px;z-index:1;">${place.address_name}</div>
-        <div style="padding:5px;z-index:1;">${place.road_address_name}</div>
+        <div class="InfoWindow PlaceInfoWindow">
+            <div class="tooltip-body">
+                <div class="tooltip-head">
+                    <strong class="placename">
+                    <a href="${place.place_url}">${place.place_name}</a>
+                    </strong>
+                </div>
+                <div class="tooltip-content">
+                    <div class="tooltip-content-place">
+                        <p class="tooltip-address">주소:${place.address_name}</p>
+                        <p class="tooltip-road">도로명:${place.road_address_name}</p>
+                        <p class="phone">전화번호:${place.phone}</p>
+                    </div>
+                </div>
+            <div>
+        <div>
     `;
-//'<div style="padding:5px;z-index:1;">' + place.place_name + '</div>'
     infowindow.setContent(content);
     infowindow.open(map, marker);
-    $(".testest")
+    
 }
 
  // 검색결과 목록의 자식 Element를 제거하는 함수입니다

@@ -44,3 +44,65 @@ body.collapse .Shadow .toggle {
 }
 
 
+/* tooltip */
+div.InfoWindow:has(div):has(div){
+    border-radius: 20%;
+}
+/* .tooltip-body{
+    min-height: 127px;
+    padding-bottom: 53px;
+
+} */
+.tooltip-head{
+    padding-right: 56px;
+    padding: 20px 88px 0 20px;
+    line-height: 22px;
+    font-size: 15px;
+}
+.InfoWindow .tooltip-head .placename{
+    overflow: hidden;
+    font-weight: 600;
+    color: #000;
+}
+.tooltip-head::after{
+    display: block;
+    visibility: hidden;
+    height: 0;
+    font-size: 0;
+    clear: both;
+    content: '';
+}
+a:link{
+    color: #333;
+    text-decoration: none;
+}
+.tooltip-content{
+    padding: 10px 20px 0;
+}
+.tooltip-content-place{
+    
+}
+.InfoWindow.PlaceInfoWindow .tooltip-address{
+    font-size: 13px;
+    overflow: hidden;
+    max-height: 34px;
+    font-size: 12px;
+    line-height: 17px;
+    color: #222;
+}
+.tooltip-road{
+    height: 18px;
+    padding-top: 2px;
+    font-size: 12px;
+    line-height: 10px;
+    color: #919191;
+}
+.phone{
+    max-height: 17px;
+    padding-top: 3px;
+    white-space: nowrap;
+}
+.InfoWindow.PlaceInfoWindow {
+    left: -203px;
+    width: 300px;
+}
