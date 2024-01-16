@@ -93,7 +93,7 @@
             <div id="map" style="position:relative;overflow:hidden;">
                 <div id="shadow" class="Shadow on">
                     <div class="bar">
-                        <span id="shadow.toggle" class="toggle"></span>
+                        <div id="shadow.toggle" class="toggle"></div>
                     </div>
                 </div>
                 <div id="menu" class="on off">
@@ -166,21 +166,40 @@
     </div>
 </body>
 </html>
-
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=401b713d599592f06b80aaefd7fbb3c1"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+<!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=401b713d599592f06b80aaefd7fbb3c1"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&401b713d599592f06b80aaefd7fbb3c1=services,clusterer,drawing"></script>
-<!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=401b713d599592f06b80aaefd7fbb3c1&libraries=LIBRARY"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=401b713d599592f06b80aaefd7fbb3c1&libraries=services"></script> -->
-<script src="../../static/js/plan/kakaosearch.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=401b713d599592f06b80aaefd7fbb3c1&libraries=LIBRARY"></script> -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=401b713d599592f06b80aaefd7fbb3c1&libraries=services"></script>
 <script src="../../static/js/plan/kakaoMap.js"></script>
+<!-- <script src="../../static/js/plan/test.js"></script> -->
 <script>
 
+    
+    $(document).ready(function(){
+        // 지도 변환 박스 div 인덱스
+        console.log($("div:eq(26)"))
+        $("div:eq(26)").css("left", "20px")
+        $("div:eq(26)").css("top", "20px")
+    })
+    
+    var $arrow = $('#shadow .toggle');
+    $arrow.click(function(){
+    console.log($arrow)
+    
+    console.log($('#shadow').hasClass("test"));
+    if($('#shadow').hasClass("test")== false){
+        $("#menu").css("display", "none");
+        $('#shadow').addClass("test");
+        $('.Shadow').css("right", "18px");
+        $('.Shadow .toggle').css("background-position", "0 -66px");
+    }else {
+        $("#menu").css("display", "block");
+        $('#shadow').removeClass("test");
+        $('.Shadow').css("right", "276px");
+        $('.Shadow .toggle').css("background-position", "");
+    }
+})
 
-document.getElementById('shadow.toggle').addEventListener('click', (e) => {
-    var arrow = document.getElementById('shadow.toggle');
-    console.log(arrow);
-    // 화살표 클릭 시 
-    // 
-});
 </script>
    

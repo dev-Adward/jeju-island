@@ -25,12 +25,13 @@
     bottom: 0;
     left: 0;
     margin: auto;
-    width: 22px;
+    width: 17px;
     height: 54px;
     font-size: 0;
     line-height: 0;
-    background: url("//t1.daumcdn.net/localimg/localimages/07/2018/pc/shadow/img_navi.png") no-repeat 0 0;
+    background: url("../../../templates/image/img_navi.png") no-repeat 0 0;
     text-indent: -9999px;
+    transform: rotate(180deg);
     /* background-position: 0 -66px; */
     cursor: pointer;
 }

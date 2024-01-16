@@ -68,6 +68,7 @@
     overflow: hidden;
     cursor: pointer;
     min-height: 65px;
+    right: 21px;
 }
 
 #placesList .item span {
@@ -83,7 +84,8 @@
 }
 
 #placesList .item .info {
-    padding: 10px 0 10px 55px;
+    /* padding: 10px 0 10px 55px; */
+    padding: 0px 0 2px 48px;
 }
 
 #placesList .info .gray {
