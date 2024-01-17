@@ -1,13 +1,22 @@
 kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
     // 클릭한 위치에 마커를 표시합니다 
-    addMarker2(mouseEvent.latLng);             
+    addMarker2(mouseEvent.latLng);
+    console.log(markers2)
+  
+    for (let i = 0; i < markers2.length; i++) {
+        console.log(markers2[i])
+    }
+
 });
+// kakao.maps.event.addListener(map, 'click', function(mouseEvent){
+    
+// })
 
 // 지도에 표시된 마커 객체를 가지고 있을 배열입니다
 var markers = [];
+var markers2 = [];
 
 // 마커 하나를 지도위에 표시합니다 
-addMarker2(new kakao.maps.LatLng(33.450701, 126.570667));
 
 // 마커를 생성하고 지도위에 표시하는 함수입니다
 function addMarker2(position) {
@@ -22,12 +31,19 @@ function addMarker2(position) {
     
     // 생성된 마커를 배열에 추가합니다
     markers.push(marker);
+    markers2.push(marker);
 }
 
 // 배열에 추가된 마커들을 지도에 표시하거나 삭제하는 함수입니다
 function setMarkers2(map) {
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
+        markers2[i].setMap(map);
+    }            
+}
+function setDeleteMarkers2(map) {
+    for (var i = 0; i < markers.length; i++) {
+        markers2[i].setMap(map);
     }            
 }
 
