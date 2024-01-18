@@ -1,49 +1,51 @@
-kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
-    // 클릭한 위치에 마커를 표시합니다 
-    addMarker2(mouseEvent.latLng);
-    console.log(markers2)
-  
-    for (let i = 0; i < markers2.length; i++) {
-        console.log(markers2[i])
-    }
+
+kakao.maps.event.addListener(map, 'click', function(e) {        
+    addMarker2(e.latLng);
+    
 
 });
-// kakao.maps.event.addListener(map, 'click', function(mouseEvent){
-    
-// })
+
+
+
 
 // 지도에 표시된 마커 객체를 가지고 있을 배열입니다
-var markers = [];
-var markers2 = [];
+var markersList = [];
 
 // 마커 하나를 지도위에 표시합니다 
 
 // 마커를 생성하고 지도위에 표시하는 함수입니다
-function addMarker2(position) {
+function addMarker2(position, callback) {
     
     // 마커를 생성합니다
     var marker = new kakao.maps.Marker({
         position: position
     });
-
     // 마커가 지도 위에 표시되도록 설정합니다
     marker.setMap(map);
     
     // 생성된 마커를 배열에 추가합니다
-    markers.push(marker);
-    markers2.push(marker);
+    markersList.push(marker);
+    kakao.maps.event.addListener(marker, 'click', function(e) {
+        // 마커를 지도에서 제거합니다
+        markersList = markersList.filter(v => {
+            return v !== marker
+        })
+        console.log(markersList)
+        marker.setMap(null);
+    });
 }
 
-// 배열에 추가된 마커들을 지도에 표시하거나 삭제하는 함수입니다
-function setMarkers2(map) {
-    for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(map);
-        markers2[i].setMap(map);
-    }            
+
+function setMarkers2(markersList, marker,map) {
+    for(let i = 0; i < markersList.length; i++) {
+        if (markersList[i] === marker) {
+            markersList.splice(i, 1);
+        }
+        markersList[i].setMap(map)
+    }
 }
 function setDeleteMarkers2(map) {
     for (var i = 0; i < markers.length; i++) {
-        markers2[i].setMap(map);
     }            
 }
 
