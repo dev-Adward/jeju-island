@@ -1,0 +1,79 @@
+/* header.html */
+body{
+    font-family: 'Noto Sans', sans-serif;
+}
+
+
+.header-top, .header-bottom{
+    border-bottom: 1px solid #e5e5e5;
+    background: #fff;
+}
+.header-top{
+    display: flex;
+    padding: 0 50px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.header-logo{
+    width: 200px;
+}
+.header-logo img{
+    width: 100%;
+}
+.red-text{
+    color: #ee685a;
+    margin-bottom: 10px;
+    
+}
+
+
+
+.stu-self{
+    font-size: 18px;
+    font-weight: bolder;
+    line-height: 22px;
+    color: #4a4a4a;
+    margin-bottom: 10px;
+}
+
+.header-top-right{
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 40px;
+    text-decoration: none;
+    letter-spacing: 0;
+    color: #6c6c6c;
+    display: flex;
+    
+}
+
+.header-mypage{
+    width: 40px;
+    margin-left: 20px;
+}
+
+.header-mypage img{
+    width: 100%;
+}
+/* --------------------------------------------------------- top */
+
+.header-bottom-list{
+    display: flex;
+    justify-content: center;
+    width: 1100px;
+}
+
+.header-bottom-list li{
+    list-style: none;
+    margin-left: 50px;
+}
+
+.header-clicked{
+    font-weight: bolder;
+    border-bottom: 3px solid #3ad195;
+
+}
+
+
+
