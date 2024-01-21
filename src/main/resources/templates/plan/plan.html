@@ -115,7 +115,6 @@
     background-color: #3496ff;
     color: #ffffff;
 }
-
 </style>
 
 <body id="body" style="background : #f5f5f5 ">
@@ -130,20 +129,40 @@
             <div id="map" style="position:relative;overflow:hidden;">
                 <div id="shadow" class="Shadow" style="right: 18px;">
                     <div class="bar">
-                        <div id="shadow.toggle" class="toggle"></div>
+                        <div id="shadow.toggle" class="toggle arrow"></div>
                     </div>
                 </div>
                 <div id="menu" style="display: none;">
-                    <div id="menu_wrap" class="bg_white" style="z-index: 2;">
-                        <div class="option">
-                            <div>
-                                <form onsubmit="searchPlaces(); return false;">
-                                    키워드 : <input type="text" value="" id="keyword" size="15"> 
-                                    <button type="submit">검색하기</button> 
+                    <div id="menu_wrap2" class="bg_white" style="z-index: 10;">
+                        <div class="menu_header">
+                            <h1 class="title">Jeju Map</h1>
+                            <div class="box_searchBar">
+                                <form class="searchForm" onsubmit="searchPlaces(); return false;">
+                                    <fieldset class="fld_inside">
+                                        <div class="button_search">
+                                            <input class="keyword_search" maxlength="100" placeholder="장소 주소 검색" type="text" value="" id="keyword" size="15"> 
+                                            <button class="" id="ico_search" type="submit">검색하기</button> 
+                                        </div>
+                                    </fieldset>
                                 </form>
                             </div>
                         </div>
-                        <hr>
+                        
+                        <!-- <div class="option">
+                            <div class="box_searchBar">
+                                <form class="searchForm" onsubmit="searchPlaces(); return false;">
+                                    <fieldset class="fld_inside">
+                                        <div class="button_search">
+                                            <input class-="keyword_search" placeholder="장소 주소 검색" type="text" value="" id="keyword" size="15"> 
+                                            <button class="" id="ico_search" type="submit">검색하기</button> 
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div> -->
+                        
+                    </div>
+                    <div class="menu_body" style="z-index: 5;">
                         <ul id="placesList"></ul>
                         <div id="pagination"></div>
                     </div>
@@ -229,13 +248,11 @@
         
         $("#menu").css("display", "block");
         $('#shadow').addClass("toggleTest");
-        $('.Shadow').css("right", "276px");
-        $('.Shadow .toggle').css("background-position", "");
+        $('.Shadow').css("right", "416px");
     }else {
         $('#shadow').removeClass("toggleTest");
         $("#menu").css("display", "none");
         $('.Shadow').css("right", "18px");
-        $('.Shadow .toggle').css("background-position", "0 -66px");
        
         
         

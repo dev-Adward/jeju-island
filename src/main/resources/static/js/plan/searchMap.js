@@ -68,6 +68,7 @@ function placesSearchCB(data, status, pagination) {
 
         // 페이지 번호를 표출합니다
         displayPagination(pagination);
+        console.log(displayPagination)
         
         
         /* 추가 시킨 부분 start  */
@@ -99,7 +100,7 @@ function placesSearchCB(data, status, pagination) {
 function displayPlaces(places) {
 
     var listEl = document.getElementById('placesList'), 
-    menuEl = document.getElementById('menu_wrap'),
+    menuEl = document.getElementById('menu_wrap2'),
     fragment = document.createDocumentFragment(), 
     bounds = new kakao.maps.LatLngBounds(), 
     listStr = '';
@@ -195,7 +196,7 @@ function addMarker(position, idx, title) {
             position: position, // 마커의 위치
             image: markerImage 
         });
-    markerSetList.push(marker);
+    // markerSetList.push(marker);
     marker.setMap(map); // 지도 위에 마커를 표출합니다
     markers.push(marker);  // 배열에 생성된 마커를 추가합니다
     return marker;
