@@ -55,15 +55,24 @@ div.InfoWindow:has(div):has(div){
 } */
 .tooltip-head{
     padding-right: 56px;
-    padding: 20px 88px 0 20px;
-    line-height: 22px;
+    padding: 5px 88px 0 20px;
+    line-height: 39px;
     font-size: 15px;
+    background-color: #3496ff;
 }
-.InfoWindow .tooltip-head .placename{
+.InfoWindow .placename{
     overflow: hidden;
     font-weight: 600;
-    color: #000;
 }
+.placeName_a{
+    color: #ffffff;
+    text-decoration: none;
+
+}
+/* a:link{
+    color: #ffffff;
+    text-decoration: none;
+} */
 .tooltip-head::after{
     display: block;
     visibility: hidden;
@@ -72,16 +81,10 @@ div.InfoWindow:has(div):has(div){
     clear: both;
     content: '';
 }
-a:link{
-    color: #333;
-    text-decoration: none;
-}
 .tooltip-content{
-    padding: 10px 20px 0;
+    padding: 4px 19px 0;
 }
-/* .tooltip-content-place{
-    
-} */
+
 .InfoWindow.PlaceInfoWindow .tooltip-address{
     font-size: 13px;
     overflow: hidden;

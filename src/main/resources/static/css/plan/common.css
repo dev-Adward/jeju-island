@@ -1,3 +1,19 @@
+@font-face {
+    font-family : 'GmarketSansBold';
+    src: url('../../font/GmarketSansTTFBold.woff') format('woff');
+  }
+@font-face {
+    font-family : 'GmarketSansLight';
+    src: url('../../font/GmarketSansTTFLight.woff') format('woff');
+  }
+@font-face {
+    font-family : 'GmarketSansMedium';
+    src: url('../../font/GmarketSansTTFMedium.woff') format('woff');
+  }
+@font-face {
+    font-family : 'Jalnan';
+    src: url('../../font/Jalnan2TTF.woff') format('woff');
+  }
 body {
     display: block;
     margin : 0;
@@ -10,6 +26,6 @@ body {
     line-height: 1.6;
 }
 #body {
-    font-family: sans-serif;
+    font-family: "GmarketSansMedium","GmarketSansLight",sans-serif,"Jalnan";
     /* outline : none; */
 }

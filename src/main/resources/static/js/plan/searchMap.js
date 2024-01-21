@@ -248,7 +248,7 @@ function displayInfowindow(marker, place) {
             <div class="tooltip-body">
                 <div class="tooltip-head">
                     <strong class="placename">
-                    <a href="${place.place_url}">${place.place_name}</a>
+                    <a class="placeName_a" href="${place.place_url}">${place.place_name}</a>
                     </strong>
                 </div>
                 <div class="tooltip-content">

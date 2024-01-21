@@ -10,7 +10,20 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 var mapTypeControl = new kakao.maps.MapTypeControl();
 
 // 지도 타입 컨트롤을 지도에 표시합니다
-map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+function setMapType(maptype) { 
+    var roadmapControl = document.getElementById('btnRoadmap');
+    var skyviewControl = document.getElementById('btnSkyview'); 
+    if (maptype === 'roadmap') {
+        map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);    
+        roadmapControl.className = 'selected_btn';
+        skyviewControl.className = 'btn';
+    } else {
+        map.setMapTypeId(kakao.maps.MapTypeId.HYBRID);    
+        skyviewControl.className = 'selected_btn';
+        roadmapControl.className = 'btn';
+    }
+}
 
 var options = { // Drawing Manager를 생성할 때 사용할 옵션입니다
     map: map, // Drawing Manager로 그리기 요소를 그릴 map 객체입니다
@@ -64,6 +77,33 @@ var options = { // Drawing Manager를 생성할 때 사용할 옵션입니다
 // 위에 작성한 옵션으로 Drawing Manager를 생성합니다
 var manager = new kakao.maps.drawing.DrawingManager(options);
 
+var undoBtn = document.getElementById('undo');
+var redoBtn = document.getElementById('redo');
+
+// Drawing Manager 객체에 state_changed 이벤트를 등록합니다
+// state_changed 이벤트는 그리기 요소의 생성/수정/이동/삭제 동작 
+// 또는 Drawing Manager의 undo, redo 메소드가 실행됐을 때 발생합니다
+manager.addListener('state_changed', function() {
+
+	// 되돌릴 수 있다면 undo 버튼을 활성화 시킵니다 
+	if (manager.undoable()) {
+		undoBtn.disabled = false;
+		undoBtn.className = "";
+	} else { // 아니면 undo 버튼을 비활성화 시킵니다 
+		undoBtn.disabled = true;
+		undoBtn.className = "disabled";
+	}
+
+	// 취소할 수 있다면 redo 버튼을 활성화 시킵니다 
+	if (manager.redoable()) {
+		redoBtn.disabled = false;
+		redoBtn.className = "";
+	} else { // 아니면 redo 버튼을 비활성화 시킵니다 
+		redoBtn.disabled = true;
+		redoBtn.className = "disabled";
+	}
+
+});
 // 버튼 클릭 시 호출되는 핸들러 입니다
 function selectOverlay(type) {
     // 그리기 중이면 그리기를 취소합니다
@@ -71,4 +111,14 @@ function selectOverlay(type) {
 
     // 클릭한 그리기 요소 타입을 선택합니다
     manager.select(kakao.maps.drawing.OverlayType[type]);
+}
+function undo() {
+	// 그리기 요소를 이전 상태로 되돌립니다
+	manager.undo();
+}
+
+// redo 버튼 클릭시 호출되는 함수입니다.
+function redo() {
+	// 이전 상태로 되돌린 상태를 취소합니다
+	manager.redo();
 }

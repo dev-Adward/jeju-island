@@ -77,7 +77,44 @@
     height: 75px;
     background: #ad2f2f;
 }
+.edit {
+    width: 441px;
+    height: 32px;
+    box-sizing: content-box;
+    background-color: rgb(255, 255, 255);
+    padding: 2px;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px;
+    position: absolute;
+    left: 16px;
+    top: 7px;
+}
 
+.edit > button {
+    float: left;
+    cursor: default;
+    width: 55px;
+    font-size: 14px;
+    height: 29px;
+    user-select: none;
+    -webkit-user-drag: none;
+    border: none;
+    border-radius: 5px;
+    margin: 2px 3px 3px 2px;
+    background-color: #ffffff;
+    font-family: "Jalnan";
+}
+#btnSkyview{
+    width: 70px;
+}
+.edit > .edit-button:hover{
+    background-color: #3496ff;
+    color: #ffffff;
+}
+.edit > .selected_btn{
+    background-color: #3496ff;
+    color: #ffffff;
+}
 
 </style>
 
@@ -111,12 +148,17 @@
                         <div id="pagination"></div>
                     </div>
                 </div>
+                <p class="edit" style="z-index: 999;">
+                    <button id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</button>
+                    <button id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</button>
+                    <button class="edit-button" onclick="selectOverlay('MARKER')">마커</button>
+                    <button class="edit-button" onclick="selectOverlay('POLYLINE')">선</button>
+                    <button id="markerout" class="edit-button" onclick="">검색</button>
+                    <button id="undo" class="disabled edit-button" onclick="undo()" disabled>UNDO</button>
+                    <button id="redo" class="disabled edit-button" onclick="redo()" disabled>REDO</button>
+                </p>
             </div>
-            <p>
-                <button onclick="selectOverlay('MARKER')">마커</button>
-                <button onclick="selectOverlay('POLYLINE')">선</button>
-                <button id="markerout" onclick="">검색</button>
-            </p>
+            
             
             <!-- map end -->
     
@@ -179,15 +221,6 @@
 <script src="../../static/js/plan/searchMap.js"></script>
 <script src="../../static/js/plan/addmarker.js"></script>
 <script>
-
-    
-    $(document).ready(function(){
-        // 지도 변환 박스 div 인덱스 --- 찾아서 바꿔야함
-        console.log($("div"))
-        $("div:eq(26)").css("left", "20px")
-        $("div:eq(26)").css("top", "20px")
-    })
-    
     var $arrow = $('#shadow .toggle');
     $arrow.click(function(){
     console.log($arrow)
