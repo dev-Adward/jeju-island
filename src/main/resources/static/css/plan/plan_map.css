@@ -32,7 +32,7 @@
     background: url("../../../templates/image/img_navi.png") no-repeat 0 0;
     text-indent: -9999px;
     transform: rotate(180deg);
-    /* background-position: 0 -66px; */
+    background-position: 0 -66px;
     cursor: pointer;
 }
 
@@ -79,9 +79,9 @@ a:link{
 .tooltip-content{
     padding: 10px 20px 0;
 }
-.tooltip-content-place{
+/* .tooltip-content-place{
     
-}
+} */
 .InfoWindow.PlaceInfoWindow .tooltip-address{
     font-size: 13px;
     overflow: hidden;
